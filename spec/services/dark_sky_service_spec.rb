@@ -6,10 +6,6 @@ describe DarkSkyService do
   it 'exists' do
     expect(subject).to be_a(DarkSkyService)
   end
-  #Q: does DarkSKy need lat/long to function? what does it take in?
-  #A: yes, lat.long
-  #example:
-  # GET https://api.darksky.net/forecast/0123456789abcdef9876543210fedcba/42.3601,-71.0589
 
   context '#stringify_coordinates' do
     context 'with valid latitude / longitude hash' do
