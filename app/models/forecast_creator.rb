@@ -1,4 +1,4 @@
-class TodayForecastCreator
+class ForecastCreator
   def initialize(zip)
     @zip = zip
   end
