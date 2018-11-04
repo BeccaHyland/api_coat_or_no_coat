@@ -4,7 +4,7 @@ class ForecastCreator
   end
 
   def today_forecast
-
+    @forecast_object ||= Forecast.new(service.forecast_search[:hourly])
   end
 
 end
