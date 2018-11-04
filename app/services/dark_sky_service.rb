@@ -5,7 +5,7 @@ class DarkSkyService
   end
 
   def forecast_search
-    json = get_json("/forecast/#{ENV["dark_ski_api_key"]}/#{stringify_coordinates}?exclude=currently,minutely")
+    json = get_json("/forecast/#{ENV["dark_ski_api_key"]}/#{stringify_coordinates}?exclude=currently,minutely,daily")
   end
 
   def stringify_coordinates

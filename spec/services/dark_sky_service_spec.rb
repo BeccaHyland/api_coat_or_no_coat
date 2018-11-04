@@ -23,7 +23,6 @@ describe DarkSkyService do
         expect(results).to have_key(:latitude)
         expect(results).to have_key(:longitude)
         expect(results).to have_key(:hourly)
-        expect(results).to have_key(:daily)
       end
     end
   end
