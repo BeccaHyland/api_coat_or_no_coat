@@ -9,11 +9,14 @@ describe ForecastCreator do
 
   context 'instance methods' do
     context '#today_forecast' do
-
+      it 'returns a forecast object' do
+        expect(subject.today_forecast).to be_a(Forecast)
+      end
     end
 
     context '#tomorrow_forecast' do
-
+      #WIP
+      #option - separate day creators that inherit from forecast creator
     end
   end
 
