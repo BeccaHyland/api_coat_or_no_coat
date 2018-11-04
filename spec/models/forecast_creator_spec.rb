@@ -14,9 +14,10 @@ describe ForecastCreator do
       end
     end
 
-    context '#tomorrow_forecast' do
-      #WIP
-      #option - separate day creators that inherit from forecast creator
+    context '#tomorrow_forecast' do #WIP
+      it 'returns a forecast object' do
+        #option - separate day creators that inherit from forecast creator
+      end
     end
   end
 
