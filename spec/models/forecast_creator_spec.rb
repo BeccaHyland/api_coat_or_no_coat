@@ -6,7 +6,9 @@ describe ForecastCreator do
   context 'instance methods' do
     context '#today_forecast' do
       it 'returns a forecast object' do
-        expect(subject.today_forecast).to be_a(Forecast)
+        VCR.use_cassette("today forecast 80215") do
+          expect(subject.today_forecast).to be_a(Forecast)
+        end
       end
     end
 
