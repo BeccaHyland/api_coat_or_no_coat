@@ -14,7 +14,10 @@ describe DarkSkyService do
   context '#forecast_search' do
     context 'with valid search coordinates string' do
       it 'returns forecast data' do
-        results = subject.forecast_search
+
+        results = VCR.use_cassette("Darksky svc forecast search") do
+          subject.forecast_search
+        end
 
         expect(results).to have_key(:latitude)
         expect(results).to have_key(:longitude)
