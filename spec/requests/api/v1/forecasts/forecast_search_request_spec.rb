@@ -6,7 +6,7 @@ describe 'Forecast API' do
 
     get "/api/v1/forecasts/search?zip_code=#{zip_code}"
 
-    expect(response).to be_sucessful
+    expect(response).to be_successful
 
     forecast = JSON.parse(response.body, symbolize_names: true)
 
