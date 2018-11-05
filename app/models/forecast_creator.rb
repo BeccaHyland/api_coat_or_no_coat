@@ -4,7 +4,7 @@ class ForecastCreator
   end
 
   def today_forecast
-    @forecast_object ||= Forecast.new(weather_service.forecast_search[:hourly])
+    @today_forecast ||= Forecast.new(weather_service.forecast_search[:daily][:data].first)
   end
 
   private

@@ -3,10 +3,6 @@ require 'rails_helper'
 describe DarkSkyService do
   subject { DarkSkyService.new({:lat=>39.747363, :lng=>-105.1083542}) }
 
-  it 'exists' do
-    expect(subject).to be_a(DarkSkyService)
-  end
-
   context '#stringify_coordinates' do
     context 'with valid latitude / longitude hash' do
       it 'returns comma separated string' do
@@ -22,7 +18,7 @@ describe DarkSkyService do
 
         expect(results).to have_key(:latitude)
         expect(results).to have_key(:longitude)
-        expect(results).to have_key(:hourly)
+        expect(results).to have_key(:daily)
       end
     end
   end
