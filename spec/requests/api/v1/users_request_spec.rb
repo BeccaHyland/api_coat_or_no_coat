@@ -7,17 +7,19 @@ describe 'User API' do
       headers = { "Content-Type" => "application/json",
                   "Accept" => "application/json"}
       json_payload = { email: "whatever@example.com",
-                      password: "password",
+                      zip_code: 80203,
+                      phone_number: "3030303030",
+                      password_digest: "password",
                       password_confirmation: "password"}.to_json
 
       post "/api/v1/users", params: json_payload, headers: headers
 
-      expect(response).to be_sucessful
+      expect(response.status).to eq(201)
 
       post_response = JSON.parse(response.body, symbolize_names: true)
 
-      expect(post_response.status).to eq(201)
-      expect(post_response.body).to have_key(:api_key)
+      expect(post_response[:data][:attributes]).to have_key(:api_key)
+      expect(post_response[:data][:attributes][:api_key]).to_not be nil
     end
   end
 end
