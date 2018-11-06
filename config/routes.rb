@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       namespace :forecasts do
         get '/search', to: 'search#show'
       end
+      resources :users, only: [:create]
     end
   end
 end
