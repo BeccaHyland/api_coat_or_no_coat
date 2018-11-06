@@ -5,22 +5,20 @@ describe 'Sessions API' do
     context 'with valid email and username' do
       it 'creates a session for the user' do
 
-        user = create(:user, email: "whatever@example.com",
-                      password_digest: "password")
+        user = create(:user)
 
         headers = { "Content-Type" => "application/json",
                     "Accept" => "application/json"}
-        json_payload = { email: "whatever@example.com",
-                          password_digest: "password"}
+        json_payload = { email: "kitten@kitten.com",
+                          password: "little_kitten"}.to_json
 
         post "/api/v1/sessions", params: json_payload, headers: headers
 
-        expect(response.status).to eq(201)
+        expect(response.status).to eq(200)
 
         post_response = JSON.parse(response.body, symbolize_names: true)
 
-        expect(post_response[:data][:attributes]).to have_key(:api_key)
-        expect(post_response[:data][:attributes][:api_key]).to_not be nil
+        expect(post_response[:data][:attributes][:api_key]).to eq(user.api_key)
       end
     end
   end
