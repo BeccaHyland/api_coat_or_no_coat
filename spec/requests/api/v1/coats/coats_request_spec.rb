@@ -41,18 +41,3 @@ describe 'Coats API' do
     end
   end
 end
-
-# POST /api/v1/coats
-# Content-Type: application/json
-# Accept: application/json
-# body:
-# {
-#   “title”: “winter”,
-#   “precip_condition”: “snow”, or rain etc. or none
-#   “high_temp”: “50”,
-#   “low_temp”: “-10”,
-#   "api_key": "jgn983hy48thw9begh98h4539h4"
-# }
-# Requirements:
-# * API key must be sent
-# * If no API key or an incorrect key is provided return 401 (Unauthorized)
