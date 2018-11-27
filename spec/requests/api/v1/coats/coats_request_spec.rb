@@ -7,11 +7,11 @@ describe 'Coats API' do
 
         headers = { "Content-Type" => "application/json",
                     "Accept" => "application/json"}
-        json_payload = { title: “winter”,
-          precip_condition: “snow”,
-          high_temp: “50”,
-          low_temp: “-10”,
-          api_key: "jgn983hy48thw9begh98h4539h4"}.to_json
+        json_payload = { title: "winter",
+                        precip_condition: "snow",
+                        high_temp: "50",
+                        low_temp: "-10",
+                        api_key: "jgn983hy48thw9begh98h4539h4"}.to_json
 
         post "/api/v1/coats", params: json_payload, headers: headers
 
@@ -23,10 +23,10 @@ describe 'Coats API' do
       xit 'returns a 401 error' do
         headers = { "Content-Type" => "application/json",
                     "Accept" => "application/json"}
-        json_payload = { title: “winter”,
-          precip_condition: “snow”,
-          high_temp: “50”,
-          low_temp: “-10”}.to_json
+        json_payload = { title: "winter",
+                        precip_condition: "snow",
+                        high_temp: "50",
+                        low_temp: "-10"}.to_json
 
         post "/api/v1/coats", params: json_payload, headers: headers
 
