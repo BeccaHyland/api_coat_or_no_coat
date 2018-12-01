@@ -9,4 +9,7 @@ describe User, type: :model do
     it {should validate_presence_of :phone_number}
   end
 
+  context 'associations' do
+    it {should have_many(:coats)}
+  end
 end
