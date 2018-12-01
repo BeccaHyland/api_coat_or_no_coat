@@ -4,7 +4,6 @@ describe 'Coats API' do
   describe 'POST /api/v1/coats' do
     context 'with valid coat params' do
       it 'creates a new coat' do
-        #need a user to later test for that api_key having a coat
         user = create(:user)
 
         headers = { "Content-Type" => "application/json",
@@ -56,6 +55,15 @@ describe 'Coats API' do
 
         expect(response.status).to eq(401)
         expect(user.coats.length).to eq(0)
+      end
+    end
+  end
+
+  describe 'GET /api/v1/coats' do
+    context 'when user is logged in' do
+      it 'returns all coats belonging to user' do
+        user = create(:user)
+        create_list(:coat, 3, user_id: user.id)
       end
     end
   end
