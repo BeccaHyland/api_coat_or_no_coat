@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       end
       resources :users, only: [:create]
       resources :sessions, only: [:create]
-      resources :coats, only: [:create]
+      resources :coats, only: [:index, :create]
     end
   end
 end
