@@ -6,15 +6,13 @@ describe 'Coats API' do
       it 'creates a new coat' do
         user = create(:user)
 
-        headers = { "Content-Type" => "application/json",
-                    "Accept" => "application/json"}
-        json_payload = { title: "winter",
-                        precip_condition: "snow",
-                        high_temp: "50",
-                        low_temp: "-10",
-                        api_key: "#{user.api_key}"}.to_json
+        payload = { title: "winter",
+                    precip_condition: "snow",
+                    high_temp: "50",
+                    low_temp: "-10",
+                    api_key: user.api_key}
 
-        post "/api/v1/coats", params: json_payload, headers: headers
+        post "/api/v1/coats", params: payload
 
         expect(response.status).to eq(201)
         expect(user.coats.length).to eq(1)
@@ -25,14 +23,12 @@ describe 'Coats API' do
       it 'returns a 401 error' do
         user = create(:user)
 
-        headers = { "Content-Type" => "application/json",
-                    "Accept" => "application/json"}
-        json_payload = { title: "winter",
+        payload = { title: "winter",
                         precip_condition: "snow",
                         high_temp: "50",
-                        low_temp: "-10"}.to_json
+                        low_temp: "-10"}
 
-        post "/api/v1/coats", params: json_payload, headers: headers
+        post "/api/v1/coats", params: payload
 
         expect(response.status).to eq(401)
         expect(user.coats.length).to eq(0)
@@ -43,15 +39,13 @@ describe 'Coats API' do
       it 'returns a 401 error' do
         user = create(:user)
 
-        headers = { "Content-Type" => "application/json",
-                    "Accept" => "application/json"}
-        json_payload = { title: "winter",
+        payload = { title: "winter",
                         precip_condition: "snow",
                         high_temp: "50",
                         low_temp: "-10",
-                        api_key: "wrong_api_key"}.to_json
+                        api_key: "wrong_api_key"}
 
-        post "/api/v1/coats", params: json_payload, headers: headers
+        post "/api/v1/coats", params: payload
 
         expect(response.status).to eq(401)
         expect(user.coats.length).to eq(0)
@@ -68,9 +62,9 @@ describe 'Coats API' do
         user_2 = create(:user)
         user_2_coat = create(:coat)
 
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_1)
+        payload = { api_key: user_1.api_key }
 
-        get "/api/v1/coats"
+        get "/api/v1/coats", params: payload
 
         expect(response.status).to eq(200)
 
@@ -85,11 +79,24 @@ describe 'Coats API' do
       end
     end
 
-    context 'with user not logged in' do
+    context 'with no api key' do
       it 'returns a 401 error' do
         user_1 = create(:user)
+        user_1_coat = create(:coat, user_id: user_1.id)
 
-        get "/api/v1/coats"
+        get "/api/v1/coats", headers: headers
+
+        expect(response.status).to eq(401)
+      end
+    end
+
+    context 'with incorrect api key' do
+      it 'returns 401 error' do
+        user_1 = create(:user)
+
+        payload = { api_key: "wrong api key" }
+
+        get "/api/v1/coats", params: payload, headers: headers
 
         expect(response.status).to eq(401)
       end
