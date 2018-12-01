@@ -1,4 +1,5 @@
 class Api::V1::CoatsController < ApplicationController
+
   def create
     if request_params[:api_key] && confirmed_user_by_key
       user = confirmed_user_by_key

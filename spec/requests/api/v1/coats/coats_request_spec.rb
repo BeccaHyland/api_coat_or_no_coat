@@ -62,8 +62,25 @@ describe 'Coats API' do
   describe 'GET /api/v1/coats' do
     context 'when user is logged in' do
       it 'returns all coats belonging to user' do
-        user = create(:user)
-        create_list(:coat, 3, user_id: user.id)
+        user_1 = create(:user)
+        user_1_coat = create(:coat, user_id: user_1.id)
+
+        user_2 = create(:user)
+        user_2_coat = create(:coat)
+
+        headers = { "Content-Type" => "application/json",
+                    "Accept" => "application/json"}
+        json_payload = { api_key: "#{user_1.api_key}"}.to_json
+
+        get "/api/v1/coats", params: json_payload, headers: headers
+
+        expect(response.status).to eq(200)
+
+        get_response = JSON.parse(response.body, symbolize_names: true)
+
+        expect(post_reponse[:data].to be_an(Array))
+        expect(post_reponse[:data][:attributes].to be_an(Array))
+        expect(post_reponse[:data]).to_not include(user_2_coat)
       end
     end
   end
