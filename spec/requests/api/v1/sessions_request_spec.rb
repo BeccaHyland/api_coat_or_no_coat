@@ -8,7 +8,7 @@ describe 'Sessions API' do
 
         headers = { "Content-Type" => "application/json",
                     "Accept" => "application/json"}
-        json_payload = { email: "kitten@kitten.com",
+        json_payload = { email: user.email,
                           password: "little_kitten"}.to_json
 
         post "/api/v1/sessions", params: json_payload, headers: headers

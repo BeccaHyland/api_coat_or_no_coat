@@ -1,4 +1,12 @@
 class Api::V1::CoatsController < ApplicationController
+  def index
+    if current_user
+      render json: CoatSerializer.new(user_coats)
+    else
+      render json: {}, status: 401
+    end
+  end
+
   def create
     if request_params[:api_key] && confirmed_user_by_key
       user = confirmed_user_by_key
@@ -15,6 +23,10 @@ class Api::V1::CoatsController < ApplicationController
   end
 
   private
+
+  def user_coats
+    Coat.where(user_id: current_user[:id])
+  end
 
   def confirmed_user_by_key
     User.find_by_api_key(request_params[:api_key])
