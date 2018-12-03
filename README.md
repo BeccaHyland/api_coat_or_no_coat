@@ -29,7 +29,8 @@ POST `/api/v1/coats`
 * Requires a parameter `api_key` belonging to an existing user in the database. Associates coat to that user.
 * Requires coat parameters `title`, `precip_condition`, `high_temp`, and `low_temp` (Visit front end homepage above to see coat examples)
 
-GET `/api/v1/coats` Requires a parameter `api_key` belonging to an existing user in the database.Returns all coats for one user.
+GET `/api/v1/coats` Requires a parameter `api_key` belonging to an existing user in the database.
+* Returns all coats for one user.
 
 This API also includes an endpoint for POST `/api/v1/sessions` that takes parameters of the user's email / password and returns the user's API key.
 
