@@ -2,7 +2,9 @@
 
 CONC saves users time and energy on busy mornings with a customizable daily alert that recommends outerwear based on the weather. (front end in development)
 
-[Visit Coat or No Coat!](https://beccahyland.github.io/frontend_coat_or_no_coat/) Check out the register screen and click the button to the homepage to see the current static style.
+[Visit Coat or No Coat]'s front end!(https://beccahyland.github.io/frontend_coat_or_no_coat/) *(currently in development)
+Check out the register screen and click the button to the homepage to see the current static style.
+You can see the front end code [here](https://github.com/BeccaHyland/frontend_coat_or_no_coat).
 
 ## Using CONC's Endpoints
 This API backend is deployed here: https://secret-ocean-30502.herokuapp.com/
