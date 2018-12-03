@@ -25,14 +25,16 @@ POST `/api/v1/users`
 * Returns a unique API key generated for that CONC user
 
 POST `/api/v1/coats`
-* Add a new coat to the database.
+* Add a new coat to the database
 * Requires a parameter `api_key` belonging to an existing user in the database. Associates coat to that user.
 * Requires coat parameters `title`, `precip_condition`, `high_temp`, and `low_temp` (Visit front end homepage above to see coat examples)
 
 GET `/api/v1/coats` Requires a parameter `api_key` belonging to an existing user in the database.
-* Returns all coats for one user.
+* Returns all coats for one user
 
-This API also includes an endpoint for POST `/api/v1/sessions` that takes parameters of the user's email / password and returns the user's API key.
+POST `/api/v1/sessions`
+* Takes parameters of the user's email / password
+* Returns the user's API key
 
 ## Built With
 * Rails
