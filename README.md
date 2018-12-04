@@ -2,6 +2,8 @@
 
 CONC saves users time and energy on busy mornings with a customizable daily alert that recommends outerwear based on the weather.
 
+This is the CONC back end, which stores users and their coats, generates user sessions, and queries external APIs for forecast and geocoding data. In development is the Coat Selector model to match User Coats with each day's Forecast. 
+
 [Visit Coat or No Coat's front end!](https://beccahyland.github.io/frontend_coat_or_no_coat/) *(currently in development)*
 <img width="1440" alt="updated style after review" src="https://user-images.githubusercontent.com/39714935/49409669-cde1b180-f71e-11e8-904d-fd7fd4e1cc9c.png">
 
@@ -45,7 +47,7 @@ POST `/api/v1/sessions`
 * Faraday gem (API requests)
 
 ## Tested With
-* Rspec
+* Rspec / TDD
 
 ## Testing Gems
 * FactoryBot
