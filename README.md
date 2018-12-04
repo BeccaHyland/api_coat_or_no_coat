@@ -16,6 +16,7 @@ _(without an endpoint url below, displays nothing)_
 You can request data from the following endpoints by adding them to the end of the web address above, and entering the full URL in your browser.
 
 `/api/v1/forecasts/search?zip_code=ENTER A ZIP CODE HERE`
+
 Example:
 <img width="901" alt="screen shot 2018-12-02 at 9 02 06 pm" src="https://user-images.githubusercontent.com/39714935/49409613-95da6e80-f71e-11e8-9bde-9f5f870f4bdd.png">
 
