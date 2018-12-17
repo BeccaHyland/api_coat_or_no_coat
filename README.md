@@ -1,10 +1,10 @@
 # Coat or No Coat
 
-CONC saves users time and energy on busy mornings with a customizable daily alert that recommends outerwear based on the weather.
+CONC saves users time and energy on busy mornings with a customizable daily alert that recommends outerwear based on the weather. *under development*
 
-This is the CONC back end, which stores users and their coats, generates user sessions, and queries external APIs for forecast and geocoding data. In development is the Coat Selector model to match User Coats with each day's Forecast. 
+This is the CONC back end, which stores users and their coats, generates user sessions, and queries external APIs for forecast and geocoding data. *Coming Soon: Coat Selector model to match User Coats with each day's Forecast*
 
-[Visit Coat or No Coat's front end!](https://beccahyland.github.io/frontend_coat_or_no_coat/) *(currently in development)*
+[Visit Coat or No Coat's front end!](https://beccahyland.github.io/frontend_coat_or_no_coat/) *under development*
 <img width="1440" alt="updated style after review" src="https://user-images.githubusercontent.com/39714935/49409669-cde1b180-f71e-11e8-904d-fd7fd4e1cc9c.png">
 
 Check out the register screen and click the button to the homepage to see the current static style.
@@ -13,7 +13,7 @@ You can also see the front end code [here](https://github.com/BeccaHyland/fronte
 ## Using CONC's API Endpoints
 This API backend is deployed here: https://secret-ocean-30502.herokuapp.com/
 
-_(without an endpoint url below, displays nothing)_
+_(Without an endpoint url below, no display)_
 
 You can request data from the following endpoints by adding them to the end of the web address above, and entering the full URL in your browser.
 
