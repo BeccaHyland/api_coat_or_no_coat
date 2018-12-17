@@ -44,6 +44,7 @@ POST `/api/v1/sessions`
 
 ## Built With
 * Rails
+* [Netflix's Fast JSON API serializers](https://github.com/Netflix/fast_jsonapi)
 * Faraday gem (API requests)
 
 ## Tested With
